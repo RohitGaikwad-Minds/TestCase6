@@ -1,0 +1,36 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ContactUsFormTest {
+    public static void main(String[] args) {
+        // Set the path to your ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver.exe");
+
+        // Instantiate ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the "Contact Us" page
+        driver.get("https://automationexercise.com/contact_us");
+
+        // Find form elements and fill in the required information
+        WebElement nameField = driver.findElement(By.id("name"));
+        nameField.sendKeys("Your Name");
+
+        WebElement emailField = driver.findElement(By.id("email"));
+        emailField.sendKeys("your_email@example.com");
+
+        WebElement messageField = driver.findElement(By.id("message"));
+        messageField.sendKeys("This is my message.");
+
+        // Submit the form
+        WebElement submitButton = driver.findElement(By.xpath("//button[@type='submit']"));
+        submitButton.click();
+
+        // Optionally, add assertions or check for success messages to verify that the form submission was successful
+
+        // Close the browser
+        driver.quit();
+    }
+}
